@@ -5,11 +5,23 @@ public class Sudoku implements GestionSudoku {
 	private Case[][] grille;
 	private boolean aGagne;
 	
+	public Sudoku() {
+		this.grille = new Case[4][4];
+		this.aGagne=false;
+	}
 	
+	//Getters and Setters
+	public Case[][] getGrille() {
+		return this.grille;
+	}
+
+	public boolean getAGagne() {
+		return this.aGagne;
+	}
+
 	@Override
 	public void InitialisationGrille() {
 		// TODO Auto-generated method stub
-		this.grille = new Case[4][4];
 		
 		//Initialize la grille avec des case vide (contenant des zeros)
 		for(int iLigne=0; iLigne<grille.length; iLigne++) {
@@ -26,6 +38,7 @@ public class Sudoku implements GestionSudoku {
 		this.grille[3][1].setChiffre(3);	this.grille[3][1].setEstMasque(false);
 		
 		this.grille[3][3].setChiffre(4);	this.grille[3][3].setEstMasque(false);
+		
 	}
 
 	@Override
@@ -59,9 +72,19 @@ public class Sudoku implements GestionSudoku {
 	}
 
 	@Override
-	public boolean VerificationGagne() {
+	public void VerificationGagne() {
 		// TODO Auto-generated method stub
-		return false;
+		boolean PasGagne = false;
+		for(int iLigne=0; iLigne<this.grille.length;iLigne++) {
+			for(int iColonne=0; iColonne<this.grille.length;iColonne++) {
+				if(this.grille[iLigne][iColonne].getChiffre()==0) {
+					PasGagne=true;
+				}
+			}
+		}
+		if(!PasGagne) {
+			this.aGagne=true;
+		}
 	}
 
 	@Override

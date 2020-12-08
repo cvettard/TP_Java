@@ -10,7 +10,7 @@ public interface GestionSudoku {
 	
 	public boolean VerificationBloc(int chiffreSaisi, int ligneSaisi, int colonneSaisi);
 	
-	public boolean VerificationGagne();
+	public void VerificationGagne();
 	
 	//EVOLUTION
 	public boolean VerificationDiagonale(int chiffreSaisi, int ligneSaisi, int colonneSaisi);
