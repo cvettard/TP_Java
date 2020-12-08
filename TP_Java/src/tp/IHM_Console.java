@@ -15,8 +15,16 @@ public class IHM_Console implements Affichage {
 		return this.jeuSudoku;
 	}
 	
+	/*
+	 * Demande à l'utilisateur un chiffre à rentrer dans la grille ainsi que les coordonnées (abscisse + ordonnée) qui doivent correspondre aux critères de la grille
+	 * Ensuite on effectue les vérifications par rapport à la grille avec les méthodes de la classe Sudoku (verificationLigne, verificationColonne) 
+	 * 
+	 * 
+	 * Notes pour moi même :
+	 * Il faudrait séparer cette méthode en plusieurs sous méthodes (saisi du chiffre, saisi de l'abscisse, saisi de l'ordonnée, vérifications étape par étape
+	 */
 	@Override
-	public void SaisirChiffreEtCoordonneesCase() {
+	public void saisirChiffreEtCoordonneesCase() {
 		// TODO Auto-generated method stub
 		int chiffreSaisi=-1;
 		int ligneSaisi=-1;
@@ -56,8 +64,8 @@ public class IHM_Console implements Affichage {
 		}
 		
 		//Effectue les vérification pour savoir si l'on peut entrer ce chiffre ou non dans la grille
-		if(this.jeuSudoku.VerificationLigne(chiffreSaisi, ligneSaisi)
-			&& this.jeuSudoku.VerificationColonne(chiffreSaisi, colonneSaisi)
+		if(this.jeuSudoku.verificationLigne(chiffreSaisi, ligneSaisi)
+			&& this.jeuSudoku.verificationColonne(chiffreSaisi, colonneSaisi)
 			&& this.jeuSudoku.getGrille()[ligneSaisi][colonneSaisi].getChiffre()==0) {
 			this.jeuSudoku.getGrille()[ligneSaisi][colonneSaisi].setChiffre(chiffreSaisi);
 		}
@@ -66,11 +74,11 @@ public class IHM_Console implements Affichage {
 				System.out.println("Cette case ne peut pas être modifié !");
 			}
 			else {
-				if(!this.jeuSudoku.VerificationLigne(chiffreSaisi, ligneSaisi)) {
+				if(!this.jeuSudoku.verificationLigne(chiffreSaisi, ligneSaisi)) {
 					System.out.println("Il y a déjà un "+chiffreSaisi+" dans cette ligne !");
 				}
 				else {
-					if(!this.jeuSudoku.VerificationColonne(chiffreSaisi, colonneSaisi)){
+					if(!this.jeuSudoku.verificationColonne(chiffreSaisi, colonneSaisi)){
 						System.out.println("Il y a déjà un "+chiffreSaisi+" dans cette colonne !");
 					}
 				}
@@ -83,7 +91,7 @@ public class IHM_Console implements Affichage {
 	 * Affiche la grille du Sudoku, les zeros sont des cases vides
 	 */
 	@Override
-	public void AffichageGrille() {
+	public void affichageGrille() {
 		System.out.println("\n***********");
 		// TODO Auto-generated method stub
 		for(int iLigne=0; iLigne<this.jeuSudoku.getGrille().length;iLigne++) {

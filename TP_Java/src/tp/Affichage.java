@@ -2,7 +2,7 @@ package tp;
 
 public interface Affichage {
 
-	public void SaisirChiffreEtCoordonneesCase();
+	public void saisirChiffreEtCoordonneesCase();
 	
-	public void AffichageGrille();
+	public void affichageGrille();
 }

@@ -19,11 +19,15 @@ public class Sudoku implements GestionSudoku {
 		return this.aGagne;
 	}
 
+	/*
+	 * Initialisation de la grille : créer les cases de la grille
+	 * Saisi de certaines cases en dure car initialisation trop compliqué
+	 */
 	@Override
-	public void InitialisationGrille() {
+	public void initialisationGrille() {
 		// TODO Auto-generated method stub
 		
-		//Initialize la grille avec des case vide (contenant des zeros)
+		//Initialise la grille avec des cases vide (contenant des zeros)
 		for(int iLigne=0; iLigne<grille.length; iLigne++) {
 			for(int iColonne=0; iColonne<grille[iLigne].length; iColonne++) {
 				this.grille[iLigne][iColonne]= new Case();
@@ -41,8 +45,12 @@ public class Sudoku implements GestionSudoku {
 		
 	}
 
+	/*
+	 * Vérifie que le chiffre saisi par l'utilisateur n'existe pas déjà dans cette ligne
+	 * Si il existe déjà dans la ligne, renvoi faux et on redemande à l'utilisateur la saisi
+	 */
 	@Override
-	public boolean VerificationLigne(int chiffreSaisi, int ligneSaisi) {
+	public boolean verificationLigne(int chiffreSaisi, int ligneSaisi) {
 		// TODO Auto-generated method stub
 		boolean saisirChiffre=true;
 		for(int iColonne=0; iColonne<this.grille.length;iColonne++) {
@@ -53,8 +61,12 @@ public class Sudoku implements GestionSudoku {
 		return saisirChiffre;
 	}
 
+	/*
+	 * Vérifie que le chiffre saisi par l'utilisateur n'existe pas déjà dans cette colonne
+	 * Si il existe déjà dans la colonne, renvoi faux et on redemande à l'utilisateur la saisi
+	 */
 	@Override
-	public boolean VerificationColonne(int chiffreSaisi, int colonneSaisi) {
+	public boolean verificationColonne(int chiffreSaisi, int colonneSaisi) {
 		// TODO Auto-generated method stub
 		boolean saisirChiffre=true;
 		for(int iLigne=0; iLigne<this.grille.length;iLigne++) {
@@ -65,14 +77,22 @@ public class Sudoku implements GestionSudoku {
 		return saisirChiffre;
 	}
 
+	/*
+	 * Vérifie que le chiffre saisi par l'utilisateur n'existe pas déjà dans ce bloc
+	 */
 	@Override
-	public boolean VerificationBloc(int chiffreSaisi, int ligneSaisi, int colonneSaisi) {
+	public boolean verificationBloc(int chiffreSaisi, int ligneSaisi, int colonneSaisi) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	
+	/*
+	 * Vérifie si la parti est fini
+	 * Si toutes les cases sont remplis (différentes de 0) alors la partie se termine
+	 */
 	@Override
-	public void VerificationGagne() {
+	public void verificationGagne() {
 		// TODO Auto-generated method stub
 		boolean PasGagne = false;
 		for(int iLigne=0; iLigne<this.grille.length;iLigne++) {
@@ -87,14 +107,17 @@ public class Sudoku implements GestionSudoku {
 		}
 	}
 
+	/*
+	 * Vérifie que le chiffre saisi par l'utilisateur n'existe pas déjà dans cette diagonale
+	 */
 	@Override
-	public boolean VerificationDiagonale(int chiffreSaisi, int ligneSaisi, int colonneSaisi) {
+	public boolean verificationDiagonale(int chiffreSaisi, int ligneSaisi, int colonneSaisi) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void AideResolution() {
+	public void aideResolution() {
 		// TODO Auto-generated method stub
 
 	}
